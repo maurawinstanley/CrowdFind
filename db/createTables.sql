@@ -12,5 +12,5 @@ CREATE TABLE IF NOT EXISTS lostitems (
 	description varchar(100) NOT NULL,
 	location varchar(100) NOT NULL,
 	PRIMARY KEY (id),
-	FOREIGN KEY (userid) REFERENCES Users(id)
+	FOREIGN KEY (userid) REFERENCES users(id)
 );

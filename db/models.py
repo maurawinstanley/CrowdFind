@@ -5,7 +5,7 @@ class User(models.Model):
     zip_code = models.TextField()
 
 class Item(models.Model):
-    userid = models.ForeignKey(User)
+    user = models.ForeignKey(User)
     name = models.TextField()
     descirption = models.TextField()
     location = models.TextField()

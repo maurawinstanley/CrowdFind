@@ -5,7 +5,7 @@ CREATE TABLE IF NOT EXISTS users (
 	PRIMARY KEY (id)
 );
 
-CREATE TABLE IF NOT EXISTS lostitems (
+CREATE TABLE IF NOT EXISTS items (
 	id int(1) NOT NULL AUTO_INCREMENT,
 	userid int(1) NOT NULL,
 	name varchar(40) NOT NULL,

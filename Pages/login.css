@@ -1,0 +1,64 @@
+#loginFrame {
+	border-radius: 15px;
+	background-color: #cccccc;
+	position: absolute;
+	margin: auto;
+	top: 0;
+  	right: 0;
+  	bottom: 0;
+  	left: 0;
+	width: 800px;
+	height: 400px;
+	text-align: center;
+}
+
+#title {
+	position: relative;
+	bottom: 120px;
+	right: 245px;
+	font-size: 64px;
+}
+
+#login {
+	background-color: #f7f7f7;
+	display: inline-block;
+	border-style: solid;
+	border-width: 4px;
+	border-color: #459ede;
+	width: 300px;
+	height: 300px;	
+	text-align: left;
+	padding: 20px;
+	position: absolute;
+	top: 24px;
+	right: 28px;
+}
+
+#register {
+	background-color: #f7f7f7;
+	display: inline-block;
+	border-style: solid;
+	border-width: 4px;
+	border-color: #459ede;
+	width: 300px;
+	height: 300px;
+	text-align: left;
+	padding: 20px;
+	position: absolute;
+	top: 24px;
+	left: 28px;
+}
+
+input {
+	padding: 5px;
+	float: left;
+}
+
+.inputLabel {
+	padding-top: 10px; 
+}
+
+.formSubmit {
+	float: right;
+	margin-top: 10px;
+}

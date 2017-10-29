@@ -6,7 +6,7 @@
 		<title>CrowdFind Lost</title>
 
 		<meta charset = "utf-8">
-		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0 maximum-scale=1.0">
 		<link rel="stylesheet" type="text/css" href="lostandfound.css">
 
 		<!-- Latest compiled and minified Bootstrap CSS -->
@@ -17,18 +17,23 @@
 
 		<div class="container-fluid">
 
-			<div class="row">
-				<div class="col-xl-11" id="intro">
-					<h1 class="display-1">CrowdFind</h1>
+			<div class="row" id="top">
+				<div class="col-lg-4" id="intro">
+					<h1 class="display-3">CrowdFind</h1>
+				</div>
+
+				<div class="col-md-7">
+					
 				</div>
 
 				<div class="col-sm-1" id="logout">
+					<p>*insert user email*</p>
 					<a href="#">LogOut</a>
 				</div>
 			</div>
 
-			<div class="row">
-				<div class="col-md-2">
+			<div class="row" id="nav">
+				<div class="col-sm-2">
 					<nav class="navbar navbar-expand-sm navbar-light bg-faded">
 						<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#nav-content" aria-controls="nav-content" aria-expanded="false" aria-label="Toggle navigation">
 							<span class="navbar-toggler-icon"></span>
@@ -47,19 +52,63 @@
 						</div>
 					</nav>
 				</div>
+
+				<div class="col-sm-6">
+					<a href="#">Post Lost Item</a>
+				</div>
+
+				<!-- Search -->
+				<div class="col-sm-4" id="searchbar">
+					<form class="form-inline" role="search">
+					<input type="text" placeholder="Enter keywords separated by a comma", size="35",class="form-control">
+					<button type="submit" class="btn btn-secondary">Search</button>
+					</form>
+				</div>
 			</div>
 
 			<div class="row" id="lostinfo">
 				<div class="col-xl-8" id="lostmap">
 					<h2>Lost Map</h2>
-					<div class="embed-responsive embed-responsive-21by9">
-						<iframe class="embed-responsive-item" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3056.0572060921745!2d-105.26489588483378!3d40.00716973837018!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x876bedcb99bb71b9%3A0xadccadbd9ea75dc7!2sEngineering+Center%2C+1111+Engineering+Dr%2C+Boulder%2C+CO+80309!5e0!3m2!1sen!2sus!4v1508591169229" allowfullscreen></iframe>
-						</div>
+					<div class="embed-responsive embed-responsive-21by9" id="map">
+					    <script>
+					    	var map;
+					    	function initMap() {
+					        	map = new google.maps.Map(document.getElementById('map'), {
+					         		zoom: 2,
+					        		center: new google.maps.LatLng(2.8,-187.3),
+					        		mapTypeId: 'terrain'
+					        	});
+
+					        	// Create a <script> tag and set the USGS URL as the source.
+					        	var script = document.createElement('script');
+						        // This example uses a local copy of the GeoJSON stored at
+						        // http://earthquake.usgs.gov/earthquakes/feed/v1.0/summary/2.5_week.geojsonp
+						        script.src = 'https://developers.google.com/maps/documentation/javascript/examples/json/earthquake_GeoJSONP.js';
+						        document.getElementsByTagName('head')[0].appendChild(script);
+					     	}
+
+					    	// Loop through the results array and place a marker for each
+					    	// set of coordinates.
+					    	window.eqfeed_callback = function(results) {
+						        for (var i = 0; i < results.features.length; i++) {
+						        	var coords = results.features[i].geometry.coordinates;
+						        	var latLng = new google.maps.LatLng(coords[1],coords[0]);
+						        	var marker = new google.maps.Marker({
+						            	position: latLng,
+						            	map: map
+						          	});
+						        }
+					    	}
+					    </script>
+					    <script async defer
+					    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDpC_57RbRtdZ4XE4HYABF0MbcPvtT1ujc&callback=initMap">
+					    </script>
 					</div>
+				</div>
 
 				<div class="col-lg-4" id="losttable">
 					<h3>Lost Table (Scrollable)</h3>
-					<p>Currently researching, needs to have Pic, Item Name, Date and Location Found, keyword search ,...</p>
+					<p>Currently researching, needs to have Pic, Item Name, Date and Location Found, keyword search ,... as columns. Also, scaling is really off on Chrome, trying to fix.<p>
 				</div>
 			</div>
 		</div>

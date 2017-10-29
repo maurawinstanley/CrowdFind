@@ -1,7 +1,29 @@
+html, body {
+	height: 100vh;
+}
+
+#top {
+	height:3%;
+}
+
 .container-fluid div[class^="col"] {
-	border: 0.6px solid black;
+	border: 0.5px solid black;
 	background: #f5f5f5;
 	text-align: center;
-	padding-top: 8px;
-	padding-bottom: 8px;
+	padding-top: 2px;
+	padding-bottom: 2px;
+}
+
+#nav {
+	height: 3%;
+	background-color: grey;
+}
+
+#lostinfo, #foundinfo {
+	height: 94vh;
+	border: 1px solid red; /*just so I can see the borders for now*/
+}
+
+#map {
+	height:90%;
 }

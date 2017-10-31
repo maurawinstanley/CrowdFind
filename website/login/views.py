@@ -9,15 +9,15 @@ def index(request):
     return render(request, 'login.html', c)
 
 def register(request):
-    print('1')
     if request.POST:
         form = UserForm(request.POST)
-        print('2')
 
         if form.is_valid():
             form.save()
-
-            return HttpResponse('<h1>CREATED USER!</h1>')
+            form = UserForm()
+            args = {}
+            args['form'] = form
+            return render(request, 'login.html', args)
         else:
             form = UserForm()
 
@@ -25,9 +25,9 @@ def register(request):
         args['form'] = form
 
         # return render_to_response('register.html', args)
-        return render(request, 'register.html', args)
+        return render(request, 'login.html', args)
     else:
         form = UserForm()
         args = {}
         args['form'] = form
-        return render(request, 'register.html', args)
+        return render(request, 'login.html', args)

@@ -1,3 +1,77 @@
-<html>
+<!DOCTYPE html>
+
+<html lang="en">
+
+	<head>
+		<title>CrowdFind Lost</title>
+
+		<meta charset = "utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<link rel="stylesheet" type="text/css" href="lostandfound.css">
+
+		<!-- Latest compiled and minified Bootstrap CSS -->
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css" integrity="sha384-PsH8R72JQ3SOdhVi3uxftmaW6Vc51MKb0q5P2rRUpPvrszuE4W1povHYgTpBfshb" crossorigin="anonymous">
+	</head>
+
+	<body>
+
+		<div class="container-fluid">
+
+			<div class="row">
+				<div class="col-xl-11" id="intro">
+					<h1 class="display-1">CrowdFind</h1>
+				</div>
+
+				<div class="col-sm-1" id="logout">
+					<a href="#">LogOut</a>
+				</div>
+			</div>
+
+			<div class="row">
+				<div class="col-md-2">
+					<nav class="navbar navbar-expand-sm navbar-light bg-faded">
+						<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#nav-content" aria-controls="nav-content" aria-expanded="false" aria-label="Toggle navigation">
+							<span class="navbar-toggler-icon"></span>
+						</button>
+
+						<!-- Links -->
+						<div class="collapse navbar-collapse" id="nav-content">   
+							<ul class="navbar-nav">
+								<li class="nav-item active">
+									<a class="nav-link" href="lost.html">Lost</a>
+								</li>
+								<li class="nav-item">
+									<a class="nav-link" href="found.html">Found</a>
+								</li>
+							</ul>
+						</div>
+					</nav>
+				</div>
+			</div>
+
+			<div class="row" id="lostinfo">
+				<div class="col-xl-8" id="lostmap">
+					<h2>Lost Map</h2>
+					<div class="embed-responsive embed-responsive-21by9">
+						<iframe class="embed-responsive-item" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3056.0572060921745!2d-105.26489588483378!3d40.00716973837018!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x876bedcb99bb71b9%3A0xadccadbd9ea75dc7!2sEngineering+Center%2C+1111+Engineering+Dr%2C+Boulder%2C+CO+80309!5e0!3m2!1sen!2sus!4v1508591169229" allowfullscreen></iframe>
+						</div>
+					</div>
+
+				<div class="col-lg-4" id="losttable">
+					<h3>Lost Table (Scrollable)</h3>
+					<p>Currently researching, needs to have Pic, Item Name, Date and Location Found, keyword search ,...</p>
+				</div>
+			</div>
+		</div>
+
+
+		<!-- All these were required to be included to run Bootstrap -->
+		<!-- jQuery library -->
+		<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+		<!-- Popper -->
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.3/umd/popper.min.js" integrity="sha384-vFJXuSJphROIrBnz7yo7oB41mKfc8JzQZiCq4NCceLEaO4IHwicKwpJf9c9IpFgh" crossorigin="anonymous"></script>
+		<!-- Latest compiled and minified Bootstrap JavaScript -->
+		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/js/bootstrap.min.js" integrity="sha384-alpBpkh1PFOepccYVYDB4do5UnbKysX5WZXm3XxPqe5iKTfUKjNkCk9SaVuEZflJ" crossorigin="anonymous"></script>
+	</body>
 
 </html>

@@ -1,0 +1,44 @@
+#contentFrame {
+	border-radius: 15px;
+	background-color: #cccccc;
+	position: absolute;
+	margin: auto;
+	top: 0;
+  	right: 0;
+  	bottom: 0;
+  	left: 0;
+	width: 1200px;
+	height: 650px;
+}
+
+#mapFrame {
+	width: 700px;
+	height: 600px;
+	border: 5px solid black;
+	position: relative;
+	top: 20px;
+	left: 20px;
+	text-align: center;
+	float: left;
+}
+
+#formFrame {
+	width: 420px;
+	height: 600px;
+	position: relative;
+	top: 20px;
+	right: 20px;
+	border: 5px solid black;
+	float: right;
+}
+
+#itemForm {
+	margin-top: 30px;
+	margin-left: 40px;
+}
+
+#formSubmit {
+	font-size: 16px;
+	position: relative;
+	left: 145px;
+}

@@ -10,7 +10,35 @@
 <body>
 	<div id="contentFrame">
 		<div id="mapFrame">
-			<h1>MAP</h1>
+			<h1 style="color: #a1a1a1">MAP</h1>
+			<div id="mapHint">Click and drag the marker to the item's location</div>
+			<div id="map"></div>
+		    <script>
+		    	var map;
+		    	function initMap() {
+		    		var boulder = {lat: 40.03, lng: -105.28};
+		    		var itemLocation = new google.maps.LatLng(40.03, -105.28);
+		        	map = new google.maps.Map(document.getElementById('map'), {
+		         		zoom: 13,
+		        		center: new google.maps.LatLng(boulder),
+		        		mapTypeId: 'terrain'
+		        	});
+		        	var itemMarker = new google.maps.Marker({
+			        	position: itemLocation,
+			        	map: map,
+			        	draggable: true,
+			        	title: "Drag to Item Location"
+			        });
+
+		        	//Variables that store the latitude and longitude of the item marker
+			        var itemLat = itemMarker.getPosition().lat();
+					var itemLng = itemMarker.getPosition().lng();
+
+		     	}
+		    </script>
+		    <script async defer
+		    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDpC_57RbRtdZ4XE4HYABF0MbcPvtT1ujc&callback=initMap">
+		    </script>
 		</div>
 		<div id="formFrame">
 			<form id="itemForm" action="found.html">

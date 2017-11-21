@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+	<title>CrowdFind - Post an Item</title>
+	<link rel="stylesheet" type="text/css" href="postItem.css">
+</head>
+
+<body>
+	<div id="contentFrame">
+		<div id="mapFrame">
+			<h1>MAP</h1>
+		</div>
+		<div id="formFrame">
+			<form id="itemForm" action="found.html">
+				<h3>Item Type</h3>
+				<input type="radio" name="lostOrFound" value="lost">Lost
+				<input type="radio" name="lostOrFound" value="found">Found
+
+				<h3>Item Name</h3>
+				<input type="text" name="itemName">
+
+				<h3>Item Description</h3>
+				<textarea name="description" cols="40" rows="4"></textarea>
+
+				<h3>Date Lost/Found</h3>
+				<input type="date" name="date">
+
+				<h3>Image</h3>
+				<input type="file" name="image" accept="image/*">
+
+				<br><br>
+				<input id="formSubmit" type="submit" name="Post Item">
+			</form>
+		</div>
+	</div>
+
+</body>
+
+</html> 

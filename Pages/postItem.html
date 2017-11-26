@@ -30,9 +30,17 @@
 			        	title: "Drag to Item Location"
 			        });
 
-		        	//Variables that store the latitude and longitude of the item marker
-			        var itemLat = itemMarker.getPosition().lat();
-					var itemLng = itemMarker.getPosition().lng();
+					var itemLat = itemMarker.getPosition().lat();
+					var itemLong = itemMarker.getPosition().lng();
+					document.getElementById('lat').value = itemLat;
+					document.getElementById('long').value = itemLong;
+
+					google.maps.event.addListener(itemMarker, 'dragend', function (event) {
+						itemLat = itemMarker.getPosition().lat();
+						itemLong = itemMarker.getPosition().lng();
+					    document.getElementById('lat').value = itemLat;
+					    document.getElementById('long').value = itemLong;
+					});
 
 		     	}
 		    </script>
@@ -51,6 +59,14 @@
 
 				<h3>Item Description</h3>
 				<textarea name="description" cols="40" rows="4"></textarea>
+
+				<span style="float:left; margin:0 3px 0 0;">
+				<h3>Latitude</h3>
+				<input type="text" id="lat" name="Latitude" value="" readonly>
+				</span>
+
+				<h3>Longitude</h3>
+				<input type="text" id="long" name="Longitude" value="" readonly>
 
 				<h3>Date Lost/Found</h3>
 				<input type="date" name="date">

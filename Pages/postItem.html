@@ -30,17 +30,17 @@
 			        	title: "Drag to Item Location"
 			        });
 
-					var itemLat = itemMarker.getPosition().lat();
-					var itemLong = itemMarker.getPosition().lng();
+				var itemLat = itemMarker.getPosition().lat();
+				var itemLong = itemMarker.getPosition().lng();
+				document.getElementById('lat').value = itemLat;
+				document.getElementById('long').value = itemLong;
+
+				google.maps.event.addListener(itemMarker, 'dragend', function (event) {
+					itemLat = itemMarker.getPosition().lat();
+					itemLong = itemMarker.getPosition().lng();
 					document.getElementById('lat').value = itemLat;
 					document.getElementById('long').value = itemLong;
-
-					google.maps.event.addListener(itemMarker, 'dragend', function (event) {
-						itemLat = itemMarker.getPosition().lat();
-						itemLong = itemMarker.getPosition().lng();
-					    document.getElementById('lat').value = itemLat;
-					    document.getElementById('long').value = itemLong;
-					});
+				});
 
 		     	}
 		    </script>

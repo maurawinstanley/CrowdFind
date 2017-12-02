@@ -46,7 +46,8 @@ def login(request):
             user = User.objects.filter(email=form.cleaned_data.get('email'))
             if user:
                 #redirect user to main page
-                return HttpResponse("LOGGED IN!!")
+                args = {}
+                return HttpResponseRedirect('/login/main/')
             else:
                 form = LoginForm()
                 args = {}

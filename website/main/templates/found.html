@@ -108,7 +108,13 @@
 
 				<div class="col-lg-4" id="foundtable">
 					<h3>Found Table (Scrollable)</h3>
-					<p>Currently researching, needs to have Pic, Item Name, Date and Location Found, keyword search ,... as columns. Also, scaling is really off on Chrome, trying to fix.</p>
+					{% for item in obj %}
+
+					<h2>{{item.name}}</h2>
+					<p>{{item.description}}</p>
+
+					{% endfor %}
+					<!-- <p>Currently researching, needs to have Pic, Item Name, Date and Location Found, keyword search ,... as columns. Also, scaling is really off on Chrome, trying to fix.</p> -->
 				</div>
 			</div>
 		</div>

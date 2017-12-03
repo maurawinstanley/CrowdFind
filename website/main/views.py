@@ -23,6 +23,7 @@ def postItem(request):
             form.save()
             form = ItemForm()
             args = {}
+            args['obj'] = Item.objects.all()
             args['form'] = form
             return HttpResponseRedirect('/login/main/')
         else:

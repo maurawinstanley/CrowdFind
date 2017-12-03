@@ -5,4 +5,4 @@ class ItemForm(forms.ModelForm):
     
     class Meta:
         model = Item
-        fields = ['status', 'name', 'description', 'date']
+        fields = ['status', 'name', 'description', 'date', 'latitude', 'longitude']

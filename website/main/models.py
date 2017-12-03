@@ -13,3 +13,5 @@ class Item(models.Model):
     name = models.CharField(max_length=100)
     description = models.TextField(max_length=750)
     date = models.DateField()
+    latitude = models.FloatField(default=0)
+    longitude = models.FloatField(default=0)

@@ -96,14 +96,15 @@
 
 				var itemLat = itemMarker.getPosition().lat();
 				var itemLong = itemMarker.getPosition().lng();
-				document.getElementById('lat').value = itemLat;
-				document.getElementById('long').value = itemLong;
+				document.getElementById('id_latitude').value = itemLat;
+				document.getElementById('id_longitude').value = itemLong;
 
 				google.maps.event.addListener(itemMarker, 'dragend', function (event) {
 					itemLat = itemMarker.getPosition().lat();
 					itemLong = itemMarker.getPosition().lng();
-					document.getElementById('lat').value = itemLat;
-					document.getElementById('long').value = itemLong;
+					var form = document.getElementById('itemForm')
+					document.getElementById('id_latitude').value = itemLat;
+					document.getElementById('id_longitude').value = itemLong;
 				});
 
 		     	}
@@ -114,32 +115,30 @@
 		</div>
 		<div id="formFrame">
 			<form id="itemForm" action="/login/main/postItem/" method="post"> {% csrf_token %}
-				<!-- <h3>Item Type</h3>
-				<input type="radio" name="lostOrFound" value="lost">Lost
-				<input type="radio" name="lostOrFound" value="found">Found
+				<h3>Item Type</h3>
+				{{form.status}}
 
 				<h3>Item Name</h3>
-				<input type="text" name="itemName">
+				{{form.name}}
 
 				<h3>Item Description</h3>
-				<textarea name="description" cols="40" rows="4"></textarea>
-
-				<span style="float:left; margin:0 3px 0 0;">
-				<h3>Latitude</h3>
-				<input type="text" id="lat" name="Latitude" value="" readonly>
-				</span>
-
-				<h3>Longitude</h3>
-				<input type="text" id="long" name="Longitude" value="" readonly>
+				{{form.description}}
 
 				<h3>Date Lost/Found</h3>
-				<input type="date" name="date">
+				{{form.date}}
 
-				<h3>Image</h3>
-				<input type="file" name="image" accept="image/*">
+				<table>
+					<td>
+						<h3>Latitude</h3>
+						{{form.latitude}}
+					</td>
 
-				<br><br> -->
-				{{ form.as_p }}
+					<td>
+						<h3>Longitude</h3>
+						{{form.longitude}}
+					</td>
+				</table>>
+				<br>
 				<input id="formSubmit" type="submit" name="submit" value="Post Item">
 			</form>
 		</div>

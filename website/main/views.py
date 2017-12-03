@@ -8,11 +8,17 @@ from .forms import ItemForm
 
 # Create your views here.
 def found(request):
-    c = {}
+    entry_list = Item.objects.filter(status="Found")
+    c = {
+        'entry_list': entry_list
+    }
     return render(request, 'found.html', c)
 
 def lost(request):
-    c = {}
+    entry_list = Item.objects.filter(status="Lost")
+    c = {
+        'entry_list': entry_list
+    }
     return render(request, 'lost.html', c)
 
 def postItem(request):
@@ -23,9 +29,8 @@ def postItem(request):
             form.save()
             form = ItemForm()
             args = {}
-            args['obj'] = Item.objects.all()
             args['form'] = form
-            return HttpResponseRedirect('/login/main/')
+            return HttpResponseRedirect('/login/main/', args)
         else:
             form = ItemForm()
 

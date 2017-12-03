@@ -1,12 +1,4 @@
-<!DOCTYPE html>
-
-<html>
-
-<head>
-	<title>CrowdFind - Login</title>
-	<!-- <link rel="stylesheet" type="text/css" href="login.css"> -->
-	<style>
-	#loginFrame {
+#loginFrame {
 	border-radius: 15px;
 	background-color: #cccccc;
 	position: absolute;
@@ -70,27 +62,3 @@ input {
 	float: right;
 	margin-top: 10px;
 }
-	</style>
-</head>
-
-<body>
-
-	<div id="loginFrame">
-		<h1 id="title">CrowdFind</h1>
-		<div id="login">
-			<h2>Login</h2>
-			<form action="/login/" method="post"> {% csrf_token %}
-				<!-- <p class="inputLabel">Email</p> -->
-				<!-- <input type="email" name="email"><br>
-  				<br> -->
-				{{ form.as_p }}
-  				<input type="submit" value="Login">
-			</form>
-            <a href="/login/register/">Register</a>
-		</div>
-
-	</div>
-
-</body>
-
-</html> 

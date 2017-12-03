@@ -2,6 +2,8 @@ from django.conf.urls import include, url
 from . import views
 
 urlpatterns = [
-    url(r'^$', views.index, name="login"),
-   # url(r'^register/$', views.register, name='register')
+    url(r'^$', views.found, name="found"),
+    url(r'^found/', views.found, name="found"),
+    url(r'^lost/', views.lost, name="lost"),
+    url(r'^postItem/', views.postItem, name="postItem")
 ]

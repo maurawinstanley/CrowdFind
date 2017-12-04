@@ -9,7 +9,7 @@ Making the world a better place one jacket at a time
 ### How to Run Tests
 To run the tests, navigate to CrowdFind/website and run the command 'python manage.py test main'.
 ### Test Results
-[a relative link](screenshots/tests.png)
+![](screenshots/tests.png)
 
 ## User Acceptance Tests
 UAT 1: Register user

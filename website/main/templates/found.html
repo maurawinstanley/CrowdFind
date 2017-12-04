@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+	<head>
+		<title>CrowdFind Found</title>
+
+		<meta charset = "utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0 maximum-scale=1.0">
+		<link rel="stylesheet" type="text/css" href="lostandfound.css">
+
+		<!-- Latest compiled and minified Bootstrap CSS -->
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css" integrity="sha384-PsH8R72JQ3SOdhVi3uxftmaW6Vc51MKb0q5P2rRUpPvrszuE4W1povHYgTpBfshb" crossorigin="anonymous">
+	</head>
+
+	<body>
+
+		<div class="container-fluid">
+
+			<div class="row" id="top">
+				<div class="col-md-4" id="intro">
+					<h1 class="display-3">CrowdFind</h1>
+				</div>
+
+				<div class="col-md-7">
+					
+				</div>
+
+				<div class="col-sm-1" id="logout">
+					<p>*insert user email*</p>
+					<a href="#">LogOut</a>
+				</div>
+			</div>
+
+			<div class="row" id="nav">
+				<div class="col-sm-2">
+					<nav class="navbar navbar-expand-sm navbar-light bg-faded">
+						<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#nav-content" aria-controls="nav-content" aria-expanded="false" aria-label="Toggle navigation">
+							<span class="navbar-toggler-icon"></span>
+						</button>
+
+						<!-- Links -->
+						<div class="collapse navbar-collapse" id="nav-content">   
+							<ul class="navbar-nav">
+								<li class="nav-item">
+									<a class="nav-link" href="/login/main/lost/">Lost</a>
+								</li>
+								<li class="nav-item active">
+									<a class="nav-link" href="/login/main/found/">Found</a>
+								</li>
+							</ul>
+						</div>
+					</nav>
+				</div>
+
+				<div class="col-sm-6">
+					<a href="/login/main/postItem/">Post Found Item</a>
+				</div>
+
+				<!-- Search -->
+				<div class="col-sm-4" id="searchbar">
+					<form class="form-inline" role="search">
+					<input type="text" placeholder="Enter keywords separated by a comma", size="35",class="form-control">
+					<button type="submit" class="btn btn-secondary">Search</button>
+					</form>
+				</div>
+			</div>
+
+			<div class="row" id="foundinfo">
+				<div class="col-xl-8" id="foundmap">
+					<h2>Found Map</h2>
+					<div class="embed-responsive embed-responsive-21by9" id="map">
+					    <script>
+					    	var map;
+					    	function initMap() {
+					        	map = new google.maps.Map(document.getElementById('map'), {
+					         		zoom: 2,
+					        		center: new google.maps.LatLng(2.8,-187.3),
+					        		mapTypeId: 'terrain'
+					        	});
+
+					        	// Create a <script> tag and set the USGS URL as the source.
+					        	var script = document.createElement('script');
+						        // This example uses a local copy of the GeoJSON stored at
+						        // http://earthquake.usgs.gov/earthquakes/feed/v1.0/summary/2.5_week.geojsonp
+						        script.src = 'https://developers.google.com/maps/documentation/javascript/examples/json/earthquake_GeoJSONP.js';
+						        document.getElementsByTagName('head')[0].appendChild(script);
+					     	}
+
+					    	// Loop through the results array and place a marker for each
+					    	// set of coordinates.
+					    	window.eqfeed_callback = function(results) {
+						        for (var i = 0; i < results.features.length; i++) {
+						        	var coords = results.features[i].geometry.coordinates;
+						        	var latLng = new google.maps.LatLng(coords[1],coords[0]);
+						        	var marker = new google.maps.Marker({
+						            	position: latLng,
+						            	map: map
+						          	});
+						        }
+					    	}
+					    </script>
+					    <script async defer
+					    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDpC_57RbRtdZ4XE4HYABF0MbcPvtT1ujc&callback=initMap">
+					    </script>
+					</div>
+				</div>
+
+				<div class="col-lg-4" id="foundtable">
+					<h3>Found Table (Scrollable)</h3>
+					<table style="border-spacing: 5px; border-collapse: separate">
+					{% for item in entry_list %}
+					<tr><td style="border: 1px solid black; padding: 10px;">
+						<h4>{{item.name}}</h4>
+						<p>{{item.description}}</p>
+					</td></tr>
+					{% endfor %}
+					</table>
+					<!-- <p>Currently researching, needs to have Pic, Item Name, Date and Location Found, keyword search ,... as columns. Also, scaling is really off on Chrome, trying to fix.</p> -->
+				</div>
+			</div>
+		</div>
+
+
+		<!-- All these were required to be included to run Bootstrap -->
+		<!-- jQuery library -->
+		<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+		<!-- Popper -->
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.3/umd/popper.min.js" integrity="sha384-vFJXuSJphROIrBnz7yo7oB41mKfc8JzQZiCq4NCceLEaO4IHwicKwpJf9c9IpFgh" crossorigin="anonymous"></script>
+		<!-- Latest compiled and minified Bootstrap JavaScript -->
+		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/js/bootstrap.min.js" integrity="sha384-alpBpkh1PFOepccYVYDB4do5UnbKysX5WZXm3XxPqe5iKTfUKjNkCk9SaVuEZflJ" crossorigin="anonymous"></script>
+	</body>
+
+</html>

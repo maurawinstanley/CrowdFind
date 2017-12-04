@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+	<title>CrowdFind - Post an Item</title>
+	<link rel="stylesheet" type="text/css" href="postItem.css">
+	<style>
+	#contentFrame {
+	border-radius: 15px;
+	background-color: #cccccc;
+	position: absolute;
+	margin: auto;
+	top: 0;
+  	right: 0;
+  	bottom: 0;
+  	left: 0;
+	width: 1200px;
+	height: 650px;
+}
+
+#mapFrame {
+	width: 700px;
+	height: 600px;
+	border: 5px solid black;
+	position: relative;
+	top: 20px;
+	left: 20px;
+	text-align: center;
+	float: left;
+}
+
+#formFrame {
+	width: 420px;
+	height: 600px;
+	position: relative;
+	top: 20px;
+	right: 20px;
+	border: 5px solid black;
+	float: right;
+}
+
+#itemForm {
+	margin-top: 30px;
+	margin-left: 40px;
+}
+
+#formSubmit {
+	font-size: 16px;
+	position: relative;
+	left: 145px;
+}
+#map {
+	width: 680px;
+	height: 580px;
+	left: 10px;
+	bottom: 100px;
+}
+
+#mapHint {
+	position: relative;
+    top: 525px;
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
+    width: 385px;
+    padding: 5px;
+    left: 150px;
+    font-size: 18px;
+    background-color: #9985ff;
+}
+	</style>
+</head>
+
+<body>
+	<div id="contentFrame">
+		<div id="mapFrame">
+			<h1 style="color: #a1a1a1">MAP</h1>
+			<div id="mapHint">Click and drag the marker to the item's location</div>
+			<div id="map"></div>
+		    <script>
+		    	var map;
+		    	function initMap() {
+		    		var boulder = {lat: 40.03, lng: -105.28};
+		    		var itemLocation = new google.maps.LatLng(40.03, -105.28);
+		        	map = new google.maps.Map(document.getElementById('map'), {
+		         		zoom: 13,
+		        		center: new google.maps.LatLng(boulder),
+		        		mapTypeId: 'terrain'
+		        	});
+		        	var itemMarker = new google.maps.Marker({
+			        	position: itemLocation,
+			        	map: map,
+			        	draggable: true,
+			        	title: "Drag to Item Location"
+			        });
+
+				var itemLat = itemMarker.getPosition().lat();
+				var itemLong = itemMarker.getPosition().lng();
+				document.getElementById('id_latitude').value = itemLat;
+				document.getElementById('id_longitude').value = itemLong;
+
+				google.maps.event.addListener(itemMarker, 'dragend', function (event) {
+					itemLat = itemMarker.getPosition().lat();
+					itemLong = itemMarker.getPosition().lng();
+					var form = document.getElementById('itemForm')
+					document.getElementById('id_latitude').value = itemLat;
+					document.getElementById('id_longitude').value = itemLong;
+				});
+
+		     	}
+		    </script>
+		    <script async defer
+		    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDpC_57RbRtdZ4XE4HYABF0MbcPvtT1ujc&callback=initMap">
+		    </script>
+		</div>
+		<div id="formFrame">
+			<form id="itemForm" action="/login/main/postItem/" method="post"> {% csrf_token %}
+				<h3>Item Type</h3>
+				{{form.status}}
+
+				<h3>Item Name</h3>
+				{{form.name}}
+
+				<h3>Item Description</h3>
+				{{form.description}}
+
+				<h3>Date Lost/Found</h3>
+				{{form.date}}
+
+				<table>
+					<td>
+						<h3>Latitude</h3>
+						{{form.latitude}}
+					</td>
+
+					<td>
+						<h3>Longitude</h3>
+						{{form.longitude}}
+					</td>
+				</table>>
+				<br>
+				<input id="formSubmit" type="submit" name="submit" value="Post Item">
+			</form>
+		</div>
+	</div>
+
+</body>
+
+</html> 

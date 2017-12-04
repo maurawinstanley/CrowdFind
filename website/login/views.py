@@ -3,7 +3,6 @@ from .forms import UserForm, LoginForm
 from django.http import HttpResponseRedirect, HttpResponse
 from django.contrib.auth import authenticate, login
 from .models import User
-#from django.core.context_processors import csrf
 
 # Create your views here.
 def index(request):

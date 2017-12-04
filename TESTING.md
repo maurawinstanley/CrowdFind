@@ -7,8 +7,9 @@ Making the world a better place one jacket at a time
 
 ## Automated Tests
 ### How to Run Tests
-To run the tests, in the CrowdFind directory run ./manage.py test (name of the package which you would like to test e.g. login).
+To run the tests, navigate to CrowdFind/website and run the command 'python manage.py test main'.
 ### Test Results
+![Test Results](/screenshots/Screenshot from 2017-12-03 18-00-17.png)
 
 ## User Acceptance Tests
 UAT 1: Register user

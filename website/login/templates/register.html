@@ -3,73 +3,91 @@
 <html>
 
 <head>
-	<title>CrowdFind - Login</title>
+	<title>CrowdFind - Register</title>
 	<!-- <link rel="stylesheet" type="text/css" href="login.css"> -->
 	<style>
 	#loginFrame {
-	border-radius: 15px;
-	background-color: #cccccc;
-	position: absolute;
-	margin: auto;
-	top: 0;
-  	right: 0;
-  	bottom: 0;
-  	left: 0;
-	width: 800px;
-	height: 400px;
-	text-align: center;
-}
+		background-color: #a0a0a0;
+		position: absolute;
+		margin: auto;
+		top: 0;
+	  	right: 0;
+	  	bottom: 0;
+	  	left: 0;
+		width: 800px;
+		height: 400px;
+		text-align: center;
+	}
 
-#title {
-	position: relative;
-	bottom: 120px;
-	right: 245px;
-	font-size: 64px;
-}
+	#title {
+		position: relative;
+		bottom: 120px;
+		right: 200px;
+		font-size: 64px;
+	}
 
-#login {
-	background-color: #f7f7f7;
-	display: inline-block;
-	border-style: solid;
-	border-width: 4px;
-	border-color: #459ede;
-	width: 300px;
-	height: 300px;	
-	text-align: left;
-	padding: 20px;
-	position: absolute;
-	top: 24px;
-	right: 28px;
-}
+	#login {
+		display: inline-block;
+		border: 5px solid #2a9621;
+		border-radius: 10px;
+		background: #fcfcfc;
+		width: 300px;
+		height: 300px;	
+		text-align: left;
+		padding: 20px;
+		position: absolute;
+		top: 24px;
+		right: 28px;
+	}
 
-#register {
-	background-color: #f7f7f7;
-	display: inline-block;
-	border-style: solid;
-	border-width: 4px;
-	border-color: #459ede;
-	width: 300px;
-	height: 300px;
-	text-align: left;
-	padding: 20px;
-	position: absolute;
-	top: 24px;
-	left: 28px;
-}
+	#register {
+		display: inline-block;
+		border: 5px solid #2a9621;
+		border-radius: 10px;
+		background: #fcfcfc;
+		width: 300px;
+		height: 300px;
+		text-align: left;
+		padding: 20px;
+		position: absolute;
+		top: 24px;
+		left: 28px;
+	}
 
-input {
-	padding: 5px;
-	float: left;
-}
+	input {
+		padding: 5px;
+		float: left;
+	}
 
-.inputLabel {
-	padding-top: 10px; 
-}
+	.inputLabel {
+		padding-top: 10px; 
+	}
 
-.formSubmit {
-	float: right;
-	margin-top: 10px;
-}
+	.formSubmit {
+		float: right;
+		margin-top: 10px;
+	}
+
+	#switchButton {
+		border: 5px solid #25acc4;
+		border-radius: 10px;
+		background: #fcfcfc;
+	    padding: 25px;
+	    position: relative;
+	    top: 130px;
+	    left: 95px;
+	    font-size: 24px;
+	    text-decoration: none;
+	    color: black;
+	}
+
+	#switchButton:hover {
+		background-color: #7fbcc6;
+	} 
+
+	body {
+		font-family: Helvetica;
+	}
 	</style>
 </head>
 
@@ -77,6 +95,9 @@ input {
 
 	<div id="loginFrame">
 		<h1 id="title">CrowdFind</h1>
+		<div id="login">
+			<span id="switchButton"><a href="/login/" style="color: black; text-decoration: none;">Login</a></span>
+		</div>
 		<div id="register">
 			<h2>Register</h2>
 			<form action="/login/register/" method="post"> {% csrf_token %}
@@ -84,7 +105,6 @@ input {
 				<input type="submit" name="submit" value="Create User"/>
 			</form>
 			<br>
-            <a href="/login/">Login</a>
 		</div>
 
 	</div>

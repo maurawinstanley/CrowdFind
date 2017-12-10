@@ -80,7 +80,7 @@ DATABASES = {
         'ENGINE': 'django.db.backends.mysql',
         'NAME': 'CrowdFind',
         'USER': 'root',
-        'PASSWORD': '',
+        'PASSWORD': 'Orangemouse111',
         'HOST': 'localhost',
         'PORT': '',
     }

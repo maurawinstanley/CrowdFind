@@ -15,3 +15,4 @@ class Item(models.Model):
     date = models.DateField()
     latitude = models.FloatField(default=0)
     longitude = models.FloatField(default=0)
+    contact = models.CharField(max_length=150, default=None)

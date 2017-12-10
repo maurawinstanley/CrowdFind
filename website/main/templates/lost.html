@@ -27,8 +27,8 @@
 				</div>
 
 				<div class="col-sm-1" id="logout">
-					<p>Insert user email - the at part</p>
-					<a href="#">LogOut</a>
+					<p></p>
+					<a href="/login/">LogOut</a>
 				</div>
 			</div>
 
@@ -86,7 +86,8 @@
 						    	{% for item in entry_list %}
 							        var itemInfo = ['<div class="info_content">' + 
 							        				'<h3>{{item.name}}</h3>' + 
-							        				'<p>Description: {{item.description}}</p>'];
+							        				'<p>Description: {{item.description}}</p>' +
+													'<p>Contact Info: {{item.contact}}</p>'];
 							       	infoWindowContent.push(itemInfo);
 							    {% endfor %}
 
@@ -135,6 +136,7 @@
 						<tr><td style="border: 1px solid black; padding: 10px;">
 							<h4>{{item.name}}</h4>
 							<p>{{item.description}}</p>
+							<p>{{item.contact}}</p>
 						</td></tr>
 						{% endfor %}
 					</table>

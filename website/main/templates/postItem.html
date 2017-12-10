@@ -16,12 +16,12 @@
   	bottom: 0;
   	left: 0;
 	width: 1200px;
-	height: 650px;
+	height: 750px;
 }
 
 #mapFrame {
 	width: 700px;
-	height: 600px;
+	height: 700px;
 	border: 5px solid black;
 	position: relative;
 	top: 20px;
@@ -32,7 +32,7 @@
 
 #formFrame {
 	width: 420px;
-	height: 600px;
+	height: 700px;
 	position: relative;
 	top: 20px;
 	right: 20px;
@@ -52,20 +52,20 @@
 }
 #map {
 	width: 680px;
-	height: 580px;
+	height: 680px;
 	left: 10px;
 	bottom: 100px;
 }
 
 #mapHint {
 	position: relative;
-    top: 525px;
+    top: 625px;
     border-bottom-left-radius: 10px;
     border-bottom-right-radius: 10px;
     width: 385px;
     padding: 5px;
     left: 150px;
-    font-size: 18px;
+    font-size:18px;
     background-color: #9985ff;
 }
 	</style>
@@ -124,6 +124,9 @@
 				<h3>Item Description</h3>
 				{{form.description}}
 
+				<h3>Contact Information</h3>
+				{{form.contact}}
+
 				<h3>Date Lost/Found</h3>
 				{{form.date}}
 
@@ -137,7 +140,7 @@
 						<h3>Longitude</h3>
 						{{form.longitude}}
 					</td>
-				</table>>
+				</table>
 				<br>
 				<input id="formSubmit" type="submit" name="submit" value="Post Item">
 			</form>

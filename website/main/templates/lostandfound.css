@@ -1,7 +1,7 @@
 html, body {
 	/*height: 100vh;*/
 	background-color: #e2e2e2;
-	width: 100%;
+	width: 99%;
 	height: 0%;
 }
 
@@ -19,6 +19,7 @@ html, body {
 	font-family: Helvetica;
 	margin: 5px;
 	display: inline-block;
+	flex-wrap: nowrap !important;
 }
 
 #nav-content {
@@ -27,12 +28,15 @@ html, body {
 
 .row {
 	flex-wrap: nowrap;
+	margin-left: 0px;
+	margin-right: 0px;
 }
 
 #nav {
 	height: 3%;
 	background-color: #a0a0a0;
 	padding: 15px;
+	width: 102%;
 }
 
 #lostinfo, #foundinfo {

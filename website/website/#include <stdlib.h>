@@ -1,0 +1,21 @@
+#include <stdlib.h>
+
+void fun(int value) {
+    if(value)
+        fork();
+}
+
+int main() {
+
+    int returnValueOfFork = fork();
+	
+    fun(returnValueOfFork);
+    printf("Hello World\n");
+	
+    returnValueOfFork = !returnValueOfFork;
+    fun(returnValueOfFork);
+	
+    printf("Hello World\n");
+
+    exit(0);
+}

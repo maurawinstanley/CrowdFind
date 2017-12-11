@@ -68,31 +68,53 @@
 					    <script>
 					    	var map;
 					    	function initMap() {
+
+					    		var bounds = new google.maps.LatLngBounds();
 					        	map = new google.maps.Map(document.getElementById('map'), {
-					         		zoom: 2,
-					        		center: new google.maps.LatLng(2.8,-187.3),
+					         		zoom: 12,
+					        		center: new google.maps.LatLng(40.007600, -105.265900),
 					        		mapTypeId: 'terrain'
 					        	});
+					     		
+					     		// Info Window Content
+							    var infoWindowContent = [];
+						    	{% for item in entry_list %}
+							        var itemInfo = ['<div class="info_content">' + 
+							        				'<h3>{{item.name}}</h3>' + 
+							        				'<p>Description: {{item.description}}</p>'];
+							       	infoWindowContent.push(itemInfo);
+							    {% endfor %}
 
-					        	// Create a <script> tag and set the USGS URL as the source.
-					        	var script = document.createElement('script');
-						        // This example uses a local copy of the GeoJSON stored at
-						        // http://earthquake.usgs.gov/earthquakes/feed/v1.0/summary/2.5_week.geojsonp
-						        script.src = 'https://developers.google.com/maps/documentation/javascript/examples/json/earthquake_GeoJSONP.js';
-						        document.getElementsByTagName('head')[0].appendChild(script);
-					     	}
+					     		// Display multiple markers on a map
+    							var infoWindow = new google.maps.InfoWindow(), marker, i;
+    							i = 0;
 
-					    	// Loop through the results array and place a marker for each
-					    	// set of coordinates.
-					    	window.eqfeed_callback = function(results) {
-						        for (var i = 0; i < results.features.length; i++) {
-						        	var coords = results.features[i].geometry.coordinates;
-						        	var latLng = new google.maps.LatLng(coords[1],coords[0]);
-						        	var marker = new google.maps.Marker({
-						            	position: latLng,
-						            	map: map
-						          	});
-						        }
+						        {% for item in entry_list %}
+						        	var itemCoords = new google.maps.LatLng({{item.latitude}}, {{item.longitude}});
+						        	bounds.extend( itemCoords );
+							        marker = new google.maps.Marker({
+							            position: itemCoords,
+							            map: map,
+							           	title: '{{item.name}}'
+							        });
+
+							        //Allow each marker to have an info window    
+						        	google.maps.event.addListener(marker, 'click', (function(marker, i) {
+						            	return function() {
+						                	infoWindow.setContent(infoWindowContent[i][0]);
+						                	infoWindow.open(map, marker);
+						            	}
+						        	})(marker, i));
+						        	i++;
+
+						        	// Automatically center the map fitting all markers on the screen
+        							map.fitBounds(bounds);
+						        {% endfor %}
+
+						        // Override our map zoom level once our fitBounds function runs (Make sure it only runs once)
+							    var boundsListener = google.maps.event.addListener((map), 'bounds_changed', function(event) {
+							        google.maps.event.removeListener(boundsListener);
+							    });
 					    	}
 					    </script>
 					    <script async defer
@@ -111,7 +133,6 @@
 						</td></tr>
 						{% endfor %}
 					</table>
-					<!-- <p>Currently researching, needs to have Pic, Item Name, Date and Location Found, keyword search ,... as columns. Also, scaling is really off on Chrome, trying to fix.<p> -->
 				</div>
 			</div>
 		</div>

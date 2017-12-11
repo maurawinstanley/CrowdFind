@@ -1,5 +1,8 @@
 html, body {
-	height: 100vh;
+	/*height: 100vh;*/
+	background-color: #e2e2e2;
+	width: 99%;
+	height: 0%;
 }
 
 #top {
@@ -7,23 +10,48 @@ html, body {
 }
 
 .container-fluid div[class^="col"] {
-	border: 0.5px solid black;
-	background: #f5f5f5;
+	border: 5px solid #2a9621;
+	border-radius: 10px;
+	background: #fcfcfc;
 	text-align: center;
 	padding-top: 2px;
 	padding-bottom: 2px;
+	font-family: Helvetica;
+	margin: 5px;
+	display: inline-block;
+	flex-wrap: nowrap !important;
+}
+
+#nav-content {
+	border: none;
+}
+
+.row {
+	flex-wrap: nowrap;
+	margin-left: 0px;
+	margin-right: 0px;
 }
 
 #nav {
 	height: 3%;
-	background-color: grey;
+	background-color: #a0a0a0;
+	padding: 15px;
+	width: 102%;
 }
 
 #lostinfo, #foundinfo {
 	height: 94vh;
-	border: 1px solid red; /*just so I can see the borders for now*/
 }
 
 #map {
 	height:90%;
+}
+
+#postItem {
+	padding: 21px;
+	font-size: 24px;
+}
+
+#logout {
+	padding: 37px;
 }

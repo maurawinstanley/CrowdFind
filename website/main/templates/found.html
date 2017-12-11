@@ -7,10 +7,11 @@
 
 		<meta charset = "utf-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1.0 maximum-scale=1.0">
-		<link rel="stylesheet" type="text/css" href="lostandfound.css">
 
 		<!-- Latest compiled and minified Bootstrap CSS -->
 		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css" integrity="sha384-PsH8R72JQ3SOdhVi3uxftmaW6Vc51MKb0q5P2rRUpPvrszuE4W1povHYgTpBfshb" crossorigin="anonymous">
+		<link rel="stylesheet" type="text/css" href="lostandfound.css">
+
 	</head>
 
 	<body>
@@ -27,7 +28,7 @@
 				</div>
 
 				<div class="col-sm-1" id="logout">
-					<p></p>
+
 					<a href="/login/">LogOut</a>
 				</div>
 			</div>
@@ -53,17 +54,12 @@
 					</nav>
 				</div>
 
-				<div class="col-sm-6">
-					<a href="/login/main/postItem/">Post Found Item</a>
+				<div class="col-sm-6" id="postItem">
+					<a href="/login/main/postItem/" id="postItem">Post Found Item</a>
 				</div>
 
 				<!-- Search -->
-				<div class="col-sm-4" id="searchbar">
-					<form class="form-inline" role="search">
-					<input type="text" placeholder="Enter keywords separated by a comma", size="35",class="form-control">
-					<button type="submit" class="btn btn-secondary">Search</button>
-					</form>
-				</div>
+				
 			</div>
 
 			<div class="row" id="foundinfo">

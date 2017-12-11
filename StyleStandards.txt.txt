@@ -1,0 +1,4 @@
+Primary Color (Borders): #2a9621
+Secondary Color (Buttons): #25acc4
+Dark Background: #a0a0a0
+Font: Helvetica

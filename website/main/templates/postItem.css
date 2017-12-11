@@ -1,6 +1,5 @@
 #contentFrame {
-	border-radius: 15px;
-	background-color: #cccccc;
+	background-color: #a0a0a0;
 	position: absolute;
 	margin: auto;
 	top: 0;
@@ -14,7 +13,8 @@
 #mapFrame {
 	width: 700px;
 	height: 600px;
-	border: 5px solid black;
+	border: 5px solid #2a9621;
+	border-radius: 10px;
 	position: relative;
 	top: 20px;
 	left: 20px;
@@ -28,7 +28,8 @@
 	position: relative;
 	top: 20px;
 	right: 20px;
-	border: 5px solid black;
+	border: 5px solid #2a9621;
+	border-radius: 10px;
 	float: right;
 }
 

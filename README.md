@@ -1,18 +1,7 @@
 # CrowdFind
 CSCI 3308 - Team 63 Project - CrowdFind
 
-How to Run:
-1) Create new MySQL Database
-2) In settings.py, under DATABASES:
-    a) Update ENGINE to 'django.db.backends.mysql'
-    b) Update NAME to name of the database you created
-    c) Update USER to the username of the database
-    d) Update PASSWORD' to the password of the database
-3) Open terminal and navigate to CrowdFind/website directory
-4) To sync your database with django run 'python manage.py makemigrations' and once that finishes run 'python manage.py migrate'
-5) To then run the application run 'python manage.py runserver'
-6) Navigate to http://127.0.0.1:8000 to get to login/registraion portion
+CrowdFind is a lost and found tool built around crowdsourcing to help you find your lost items.  It is a web-based platform with simple functionality. Log in (or register, if you have not yet done so) and then check the map. If you lost something, drop a pin and describe your lost item. If you simply want to help others, check the map and you’ll see all the locally dropped pins of other users. If you find something you think someone lost, provide a pin and a basic description. It’s simple, clean, and could save your favorite sweater.
 
-Testing:
-See previous Testing file
-https://github.com/michaelmdresser/CrowdFind/blob/master/TESTING.md
+CrowdFind will be targeted toward college campuses as missing items are very common in college areas.  From losing jackets at parties, to simply forgetting your buff card at the library, CrowdFind will allow those who have lost something to simply upload a lost item, then await a response from the person who found their item.  By adding in messaging functionality, the finder and loser can contact each other to verify if the lost item actually belongs to that person, then meet up to retrieve their lost item.
+
